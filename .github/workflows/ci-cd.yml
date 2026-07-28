@@ -12,6 +12,7 @@ jobs:
     - run: npm test
 
   deploy:
+    needs : build-test
     runs-on: ubuntu-latest
     steps:
     - run: docker build -t app:${{ github.sha }} .
