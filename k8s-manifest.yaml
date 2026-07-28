@@ -3,7 +3,13 @@ kind: Deployment
 metadata:
   name: web-deployment
 spec:
-  replicas: 2
+  # replicas: 2
+  replicas : 6
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 2
   selector:
     matchLabels:
       app: webapp
@@ -14,7 +20,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: app-ejemplo-evaluacion:latest
+        image: app-ejemplo-evaluacion:v2
         imagePullPolicy: Never
         ports:
         - containerPort: 3000
