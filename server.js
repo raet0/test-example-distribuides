@@ -8,6 +8,6 @@ app.get('/', (req, res) => {
 
 // Bug para el Reto 1: el servidor solo escucha en localhost (127.0.0.1)
 // Por lo tanto, no será accesible desde fuera del contenedor.
-app.listen(port, '127.0.0.1', () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`App listening at http://127.0.0.1:${port}`);
 });

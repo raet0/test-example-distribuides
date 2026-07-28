@@ -10,13 +10,14 @@ spec:
   template:
     metadata:
       labels:
-        app: web
+        app: webapp
     spec:
       containers:
       - name: web
         image: app-ejemplo-evaluacion:latest
+        imagePullPolicy: Never
         ports:
-        - containerPort: 8080
+        - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
@@ -27,4 +28,4 @@ spec:
     app: webapp
   ports:
   - port: 80
-    targetPort: 8888
+    targetPort: 3000
